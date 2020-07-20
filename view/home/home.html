@@ -1,5 +1,6 @@
 <style>
 .mbutton { width:100%; margin:10px; }
+.center {padding: 100px 0; text-align: center;}
 </style>
 <div class="center">
   <div>
@@ -7,18 +8,11 @@
   </div>
 
   <p>
-    <button onclick="readBatteryLevel()">Read Bluetooth device's<br>battery level</button>
+    <button class="mbutton" onclick="readBatteryLevel()">Read Bluetooth device's<br>battery level</button>
   </p>
 
   <p id="target"></p>
 </div>
-<style>
-    .center {
-  padding: 100px 0;
-  text-align: center;
-}
-</style>
-
 
    <!-- <div ng-repeat="d in FLIDevice.devices" style="margin:10px; padding:10px; background-color:white;">
     <div class="row" style="text-align:center;">
