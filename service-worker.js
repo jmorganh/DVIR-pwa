@@ -6,7 +6,7 @@ const filesToCache = [
     'view/splash/splash.html',
     'app.js',
     'img/garage.jpg',
-    'img/logo.png'    
+    'img/logo.png'
 
 ];
 
@@ -42,10 +42,7 @@ self.addEventListener('fetch', event => {
             console.log('network request for ', event.request.url);
             return fetch(event.request)
                 .then(response => {
-                    return caches.open(staticCacheName)
-                    .then(cache => {
-                        const newLocal = cache.put(event.request.url, response.clone());
-                        return response;
+                    console.log(response);
                     })
                 })
         })
