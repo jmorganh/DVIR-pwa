@@ -1,14 +1,15 @@
 <style>
 .mbutton { width:100%; margin:10px; }
 </style>
-<div>
-Welcome {{user.email}} ...authenticated....
+<div class="center">
+  <div>
+  Welcome {{user.email}} ...authenticated....
+  </div>
+
+  <p>
+    <button onclick="readBatteryLevel()">Read Bluetooth device's<br>battery level</button>
+  </p>
 </div>
-
-<p>
-  <button onclick="readBatteryLevel()">Read Bluetooth device's<br>battery level</button>
-</p>
-
 <p id="target"></p>
 
 <style>
