@@ -42,7 +42,10 @@ self.addEventListener('fetch', event => {
             console.log('network request for ', event.request.url);
             return fetch(event.request)
                 .then(response => {
-                    console.log(response);
+                    return caches.open(staticCacheName)
+                    .then(cache => {
+                        const newLocal = cache.put(event.request.url, response.clone());
+                        return response;
                     })
                 })
         })
