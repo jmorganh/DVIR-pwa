@@ -6,8 +6,11 @@ const filesToCache = [
     'view/splash/splash.html',
     'app.js',
     'img/garage.jpg',
-    'img/logo.png'
-
+    'img/logo.png',
+    'img/android-chrome-192x192.png',
+    'favicon.ico',
+    'js/angular.js',
+    'js/angular-ui-router.js'
 ];
 
 const staticCacheName = 'AGVcache';
@@ -40,14 +43,6 @@ self.addEventListener('fetch', event => {
             return response;
             }
             console.log('network request for ', event.request.url);
-            return fetch(event.request)
-                .then(response => {
-                    return caches.open(staticCacheName)
-                    .then(cache => {
-                        const newLocal = cache.put(event.request.url, response.clone());
-                        return response;
-                    })
-                })
         })
         .catch(err => {
             console.log(err);

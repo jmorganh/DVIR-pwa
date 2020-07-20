@@ -2,14 +2,9 @@
 document.addEventListener('deviceready', function onDeviceReady() {
   console.log('DEVICE IS READY  ---- angular.bootstrap');
     angular.bootstrap(document, ['BluKee']);
-
-
 }, false);
 
-
-
 var app = angular.module('BluKee', ['ui.router']);
-
 
 app.config( function( $provide, $stateProvider, $urlRouterProvider, $compileProvider) {
   $stateProvider
@@ -38,7 +33,7 @@ app.controller('HomeController', function ($scope, $rootScope, $window, FLIDevic
 
   $scope.FLIDevice = FLIDevice;
 
-  
+
 
 });
 
@@ -117,7 +112,7 @@ app.factory('FLIDevice', function ($timeout, $interval) {
         time: 10000
       };
       console.log("Start Scan: " + JSON.stringify(params));
-      
+
     };
 
   // $cordovaBluetoothLE.initialize({ request: true  }).then(null, function(obj) {
@@ -336,12 +331,12 @@ service.writeRelay = function(address, command){
 
 function readBatteryLevel() {
   var $target = document.getElementById('target');
-  
+
   if (!('bluetooth' in navigator)) {
     $target.innerText = 'Bluetooth API not supported.';
     return;
   }
-  
+
   navigator.bluetooth.requestDevice({
       filters: [{
         services: ['battery_service']
