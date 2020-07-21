@@ -56,7 +56,7 @@ $state.transitionTo('splash');
 
 $timeout(function() {
      $state.go('home');
-     }, 3000);
+   }, 2000);
 
 
 var loginOptions = {
