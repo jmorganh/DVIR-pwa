@@ -1,18 +1,17 @@
 const filesToCache = [
-    '/',
-    'index.html',
-    'manifest.json',
-    'style.css',
-    'view/home/home.html',
-    'view/home/home.js',
-    'view/splash/splash.html',
-    'app.js',
-    'img/logo.png',
-    'img/android-chrome-192x192.png',
-    'favicon.ico',
-    'js/angular.js',
-    'js/angular-ui-router.js',
-    "js/firebase.js"
+    './',
+    './index.html',
+    './manifest.json',
+    './style.css',
+    './view/home/home.html',
+    './view/home/home.js',
+    './view/splash/splash.html',
+    './app.js',
+    './img/logo.png',
+    './img/android-chrome-192x192.png',
+    './favicon.ico',
+    './js/angular.js',
+    './js/angular-ui-router.js'
 ];
 
 const staticCacheName = 'AGVcache';
