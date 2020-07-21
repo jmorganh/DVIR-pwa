@@ -84,6 +84,8 @@ var successLoginHandler = function (obj) {
        });
 });
 
+
+
 function toUTF8Array(str) {
   if(typeof str === 'object') return str;
 
@@ -322,6 +324,20 @@ function readBatteryLevel() {
   }
 
   navigator.bluetooth.requestDevice({
+    acceptAllDevices: true,
+    })
+    .then(device => {
+        // Human-readable name of the device.
+        console.log(device.name);
+        console.log(device.id);
+        // Attempts to connect to remote GATT Server.
+        return device.gatt.connect();
+    })
+    .then(server => { /* ... */ })
+    .catch(error => { console.error(error);
+  });
+
+  navigator.bluetooth.requestDevice({
       filters: [{
         services: ['battery_service']
       }]
@@ -347,6 +363,8 @@ function readBatteryLevel() {
   };
 
 
+
+//install button for PWA app
   let deferredPrompt;
   const addBtn = document.querySelector('.add-button');
   addBtn.style.display = 'none';
