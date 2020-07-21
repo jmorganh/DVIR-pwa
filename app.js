@@ -4,6 +4,20 @@ document.addEventListener('deviceready', function onDeviceReady() {
     angular.bootstrap(document, ['BluKee']);
 }, false);
 
+
+if('serviceWorker'in navigator) {
+    window.addEventListener('load', () =>{
+        navigator.serviceWorker.register('service-worker.js')
+        .then(registration =>{
+            console.log('service worker is registered', registration);
+        })
+        .catch(err => {
+            console.error('Registration failed', err
+            )
+        })
+    });
+}
+
 var app = angular.module('BluKee', ['ui.router']);
 
 app.config( function( $provide, $stateProvider, $urlRouterProvider, $compileProvider) {

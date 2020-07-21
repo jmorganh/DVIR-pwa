@@ -18,6 +18,8 @@
 <button class="add-button">Add to home screen</button>
 
 <script type="text/javascript">
+  
+  let deferredPrompt;
 
   window.addEventListener('beforeinstallprompt', (e) => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -44,7 +46,7 @@
     });
   });
 
-  let deferredPrompt;
+
   const addBtn = document.querySelector('.add-button');
   addBtn.style.display = 'none';
 

@@ -1,4 +1,5 @@
 const filesToCache = [
+    '/',
     'index.html',
     'manifest.json',
     'style.css',
@@ -10,7 +11,8 @@ const filesToCache = [
     'img/android-chrome-192x192.png',
     'favicon.ico',
     'js/angular.js',
-    'js/angular-ui-router.js'
+    'js/angular-ui-router.js',
+    "js/firebase.js"
 ];
 
 const staticCacheName = 'AGVcache';
@@ -40,7 +42,7 @@ self.addEventListener('fetch', event => {
         .then(response => {
             if(response) {
                 console.log('Found ', event.request.url, ' in cache');
-            return response;
+            return response || fetch(event.request);
             }
             console.log('network request for ', event.request.url);
         })

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <script type="text/javascript" src="js/angular.js" ></script>
         <script type="text/javascript" src="js/angular-ui-router.js" ></script>
-        <script src="app.js"></script>
+        <script type="text/javascript" src="app.js"></script>
 
         <link rel="stylesheet" href="style.css"/>
         <link rel="manifest" href="manifest.json"/>
@@ -20,40 +20,27 @@
             <div id="content" ui-view="contentMain"></div>
         </div>
 
-        <script>
-            if('serviceWorker'in navigator) {
-                window.addEventListener('load', () =>{
-                    navigator.serviceWorker.register('service-worker.js')
-                    .then(registration =>{
-                        console.log('service worker is registered', registration);
-                    })
-                    .catch(err => {
-                        console.error('Registration failed', err
-                        )
-                })
-            });
-        }
-        </script>
+        
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+
+        <script type="text/javascript">
+          var firebaseConfig = {
+              apiKey: "AIzaSyDbhKmoh-XwfF0m-m3Ib5LfiaDFrum6KR8",
+              authDomain: "agv-app-6c0d0.firebaseapp.com",
+              databaseURL: "https://agv-app-6c0d0.firebaseio.com",
+              projectId: "agv-app-6c0d0",
+              storageBucket: "agv-app-6c0d0.appspot.com",
+              messagingSenderId: "301323924383",
+              appId: "1:301323924383:web:57112cd881c0bef0b383aa"
+          };
+        </script>
+
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
 
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
-
-        <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDbhKmoh-XwfF0m-m3Ib5LfiaDFrum6KR8",
-            authDomain: "agv-app-6c0d0.firebaseapp.com",
-            databaseURL: "https://agv-app-6c0d0.firebaseio.com",
-            projectId: "agv-app-6c0d0",
-            storageBucket: "agv-app-6c0d0.appspot.com",
-            messagingSenderId: "301323924383",
-            appId: "1:301323924383:web:57112cd881c0bef0b383aa"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        </script>
+            <!-- <script type="text/javascript" src="js/firebase.js"></script> -->
     </body>
 </html>
