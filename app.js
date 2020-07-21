@@ -129,36 +129,6 @@ app.factory('FLIDevice', function ($timeout, $interval) {
 
     };
 
-  // $cordovaBluetoothLE.initialize({ request: true  }).then(null, function(obj) {
-  //   console.log("Initialize Error : " + JSON.stringify(obj)); //Should only happen when testing in browser
-  // }, function(obj) {
-  //   console.log("Initialize Success : " + JSON.stringify(obj));
-  //   window.$cordovaBluetoothLE = $cordovaBluetoothLE;
-  //   //$scope.scan();
-  //   $cordovaBluetoothLE.hasPermission().then(function(status){
-  //     console.log('hasPermission', status);
-  //     if(status.hasPermission){
-  //       service.scan();
-  //     }else{
-  //       console.log('requesting permission');
-  //       $cordovaBluetoothLE.requestPermission().then(
-  //         function(){
-  //           console.log('you got permission');
-  //           service.scan();
-  //         },
-  //         function(){
-  //           console.log('dont have permission? DAMNIT');
-  //         }
-  //       );
-  //     }
-  //   });
-  // });
-
-
-
-
-
-
   var addDevice = function(device){
       if(service.devices[device.address]){
         device.connected = false;
@@ -167,8 +137,6 @@ app.factory('FLIDevice', function ($timeout, $interval) {
       service.devices[device.address] = device;
       console.log('ok, allow connection to '+device.name);
   };
-
-
 
   service.setTime = function(device){
 
@@ -210,7 +178,6 @@ app.factory('FLIDevice', function ($timeout, $interval) {
 
             });
   };
-
 
   service.disconnect = function(device){
     return $cordovaBluetoothLE.disconnect({address: device.address}).then(function(){
