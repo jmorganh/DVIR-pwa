@@ -47,14 +47,17 @@ app.controller('HomeController', function ($scope, $rootScope, $window, FLIDevic
 
   $scope.FLIDevice = FLIDevice;
 
-
-
 });
 
 
-app.run(function($state, $rootScope) {
+app.run(function($state, $rootScope, $timeout) {
 
 $state.transitionTo('splash');
+
+$timeout(function() {
+     $state.go('home');
+     }, 3000);
+
 
 var loginOptions = {
   'scopes': 'profile email', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
