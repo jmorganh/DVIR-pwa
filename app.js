@@ -18,20 +18,25 @@ if('serviceWorker'in navigator) {
     });
 }
 
-var app = angular.module('BluKee', ['ui.router']);
+var app = angular.module('DVIR', ['ui.router']);
 
 app.config( function( $provide, $stateProvider, $urlRouterProvider, $compileProvider) {
   $stateProvider
   .state('splash', {
     url: '/splash',
     views: {
-        'contentMain': {templateUrl: 'view/splash/splash.html'}
+        'contentMain': {templateUrl: 'view/splash/splash.html', controller: 'SplashController'}
     }})
   .state('home', {
     url: '/',
     views: {
         'contentMain': {templateUrl: 'view/home/home.html', controller: 'HomeController'}
-    }});
+    }})
+    .state('scan', {
+      url: '/scan',
+      views: {
+          'contentMain': {templateUrl: 'view/scanner.html', controller: 'ScanController'}
+      }});
         // var currentImgSrcSanitizationWhitelist = $compileProvider.imgSrcSanitizationWhitelist();
         // var newImgSrcSanitizationWhiteList = currentImgSrcSanitizationWhitelist.toString().slice(0,-1)
         // + '|chrome-extension:|data:image|https?:'
@@ -43,9 +48,22 @@ app.config( function( $provide, $stateProvider, $urlRouterProvider, $compileProv
 
 app.controller('HomeController', function ($scope, $rootScope, $window, FLIDevice) {
 
-  window.scope = $scope;
+  $timeout(function() {
+       $state.go('home');
+     }, 2000);
 
+});
+
+app.controller('HomeController', function ($scope, $rootScope, $window, FLIDevice) {
+
+  window.scope = $scope;
   $scope.FLIDevice = FLIDevice;
+
+});
+
+app.controller('ScanController', function ($scope, $rootScope, $window, FLIDevice) {
+
+
 
 });
 
@@ -53,11 +71,6 @@ app.controller('HomeController', function ($scope, $rootScope, $window, FLIDevic
 app.run(function($state, $rootScope, $timeout) {
 
 $state.transitionTo('splash');
-
-$timeout(function() {
-     $state.go('home');
-   }, 2000);
-
 
 var loginOptions = {
   'scopes': 'profile email', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
